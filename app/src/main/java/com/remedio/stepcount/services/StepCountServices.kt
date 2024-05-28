@@ -40,10 +40,7 @@ class StepCountServices() :Service() ,SensorEventListener{
             sensorManager.registerListener(this, it, SensorManager.SENSOR_DELAY_NORMAL)
         }
         sharedPreferences = getSharedPreferences(Constants.STEPCOUNT_PREF, Context.MODE_PRIVATE)
-<<<<<<< HEAD
         steps=sharedPreferences.getInt(Constants.DAILY_STEPS,0)
-=======
->>>>>>> ddf9448657a2a66e3bc989b7009b4c8eff791fa0
         createNotificationChannel()
         startForegroundService()
 
