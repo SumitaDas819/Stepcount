@@ -40,7 +40,10 @@ class StepCountServices() :Service() ,SensorEventListener{
             sensorManager.registerListener(this, it, SensorManager.SENSOR_DELAY_NORMAL)
         }
         sharedPreferences = getSharedPreferences(Constants.STEPCOUNT_PREF, Context.MODE_PRIVATE)
+<<<<<<< HEAD
         steps=sharedPreferences.getInt(Constants.DAILY_STEPS,0)
+=======
+>>>>>>> ddf9448657a2a66e3bc989b7009b4c8eff791fa0
         createNotificationChannel()
         startForegroundService()
 
@@ -82,6 +85,7 @@ class StepCountServices() :Service() ,SensorEventListener{
 
     override fun onSensorChanged(event: SensorEvent?) {
         event?.let {
+
             if (it.sensor.type == Sensor.TYPE_STEP_COUNTER) {
                 Log.d("STEPCOUNTERTAG", "sensor motion detected")
                 val detectedSteps = it.values[0].toInt()
@@ -89,6 +93,9 @@ class StepCountServices() :Service() ,SensorEventListener{
                 saveDailySteps(steps)
             }
         }
+
+
+
     }
     override fun onDestroy() {
         super.onDestroy()
@@ -98,7 +105,10 @@ class StepCountServices() :Service() ,SensorEventListener{
 
     private fun saveDailySteps(steps: Int) {
         sharedPreferences.edit().apply {
+
             Log.d("STEPCOUNTERTAG","Save daily steps called on service class---$steps")
+
+
             putInt(Constants.DAILY_STEPS,steps)
             apply()
         }

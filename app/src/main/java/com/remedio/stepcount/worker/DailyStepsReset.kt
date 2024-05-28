@@ -47,11 +47,15 @@ class DailyStepsReset(val context: Context, workParmes: WorkerParameters) :
             val stepCount = StepCount(date = time, count = todaysSteps)
             stepConteDao.insertStepCount(stepCount)
         }
+
 //        sharedPreferences.edit().apply {
 //            putInt(Constants.DAILY_STEPS,0)
 //            apply()
 //            Log.d("STEPCOUNTERTAG","shared preferance updated")
 //        }
+
+
+
 
 
     }

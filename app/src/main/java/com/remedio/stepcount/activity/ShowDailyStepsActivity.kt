@@ -31,7 +31,9 @@ class ShowDailyStepsActivity : AppCompatActivity() {
             Date()
         )
         val steps=sharedPreferences.getInt(Constants.DAILY_STEPS,0)
+
         Log.d("STEPCOUNTERTAG","Save daily steps called on show daily steps class---$steps")
+
         binding.date.text=currentDate
         binding.step.text=steps.toString()
         val stepRecords=stepConteDao.getRecentStepCounts()
